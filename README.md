@@ -2,6 +2,11 @@
 Simple Brawlhalla Gravity Cancel Scripts
 All functions are Game Specific and fairly easy to use if you know in game lingo. 
 
+FEATURE LIST:
+[F3] Light Gravity Cancel On Mouse5
+[F2] Heavy or "sig" Gravity Cancel On Mouse4
+[R] ScreenLock- Since the game is always fullscreen borderless, me and some friends tend to click out of the game and end up dying because of it. This feature will prevent the user from going within 20 pixels of the edge of their monitor.
+
 INPUT DOCUMENTATION:
 
 void sleepyms(int delay): std::this_thread::sleep_for(std::chrono::milliseconds(delay)); sleep in MS
