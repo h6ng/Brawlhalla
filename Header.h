@@ -2,6 +2,7 @@
 #define HEADER_H
 struct vars {
 	bool bFail = false;
+	bool bScreenLock = false;
 
 	bool bLgc = true;
 	bool bRgc = true;

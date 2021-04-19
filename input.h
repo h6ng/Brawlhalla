@@ -257,24 +257,7 @@ void LeftLightGravCancel(int randomshift, int randomlc, int msDelay) {
 	}
 }
 
-void RightLightGravCancel(int randomshift, int randomlc, int msDelay) {
-	if (!vars.bFail) {
-		if (pd(VK_DKEY)) { KeyUp(VK_DKEY, 1); vars.bDkey = true; }
-		if (pd(VK_AKEY)) { KeyUp(VK_AKEY, 1); vars.bAkey = true; }
-
-		KeyDown(VK_SHIFT, 1);
-		KeyDown(VK_DKEY, 1);
-		leftDown();
-		sleepyms(randomlc);
-
-		KeyUp(VK_SHIFT, 1);
-		leftUp();
-		KeyUp(VK_DKEY, 1);
-		if (msDelay != 0) { accSleep(msDelay); }
-	}
-}
-
-void NeutralLightGravCancel(int randomshift, int randomlc, int msDelay) {
+void SideLightGravCancel(int randomshift, int randomlc, int msDelay) {
 	if (!vars.bFail) {
 		if (pd(VK_AKEY)) { KeyUp(VK_AKEY, 1); vars.bAkey = true; }
 		if (pd(VK_DKEY)) { KeyUp(VK_DKEY, 1); vars.bDkey = true; }
@@ -334,40 +317,23 @@ void HeavyGravCancel(int randomshift, int randomlc) {
 	}
 }
 
-void LeftHeavyGravCancel(int randomshift, int randomlc, int msDelay) {
-	if (!vars.bFail) {
-		KeyDown(VK_AKEY, 1);
-
-		KeyDown(VK_SHIFT, 1);
-		accSleep(randomshift);
-		rightDown();
-
-		accSleep(10);
-
-		KeyUp(VK_SHIFT, 1);
-		rightUp();
-
-		KeyUp(VK_AKEY, 1);
-		if (msDelay != 0) { accSleep(msDelay); }
-	}
-}
-
-void RightHeavyGravCancel(int randomshift, int randomlc, int msDelay) {
+void SideHeavyGravCancel(int randomshift, int randomlc, int msDelay) {
 	if (!vars.bFail) {
 		if (pd(VK_AKEY)) { KeyUp(VK_AKEY, 1); vars.bAkey = true; }
 		if (pd(VK_DKEY)) { KeyUp(VK_DKEY, 1); vars.bDkey = true; }
-		if (pd(VK_SKEY)) { KeyUp(VK_SKEY, 1); vars.bSkey = true; }
 
 		KeyDown(VK_SHIFT, 1);
 		accSleep(randomshift);
-		KeyDown(VK_DKEY, 1);
+		if (vars.bDkey) KeyDown(VK_DKEY, 1);
+		if (vars.bAkey) KeyDown(VK_AKEY, 1);
 		rightDown();
 
 		accSleep(10);
 
 		KeyUp(VK_SHIFT, 1);
 		rightUp();
-		KeyUp(VK_DKEY, 1);
+		if (vars.bDkey) KeyUp(VK_DKEY, 1);
+		if (vars.bAkey) KeyUp(VK_AKEY, 1);
 		if (msDelay != 0) { accSleep(msDelay); }
 	}
 }
